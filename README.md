@@ -33,8 +33,12 @@ First of all while studying all the history of transformers and LLMs in detail, 
  Understood the basic flow of stages of building an LLM from scratch.
   ---
 
-  ## WEEK-2 Building the entire Data Preprocessing Pipeline of Large Language Models (LLMs) 
-1. Four Key Stages Covered:
+## WEEK-2 Building the entire Data Preprocessing Pipeline of Large Language Models (LLMs) 
+1. Any Model, let it be a vision model or voice models or language models perhaps, only knows to input Numbers and process on numbers. Models don’t know what are pixels, sound waves or even words which can be perceived by humans very smoothly. We focused on converting our english Words into a specific kind of data, which can be processed by models by a process called **Tokenization**. 
+
+2. Next we dealt with a concept called **Embeddings**. After tokenizing the data, it becomes important to store the meaning of those words during training process. Every token has an n-dimensional array, ie a kind of a vector in multi dimensions to store the meaning of the token assigned with language. 
+
+3. Four Key Stages Covered:
    - **Tokenization**:
      - Different approaches: word-based, subword-based (including Byte Pair Encoding (BPE)), and character-based tokenizers.
      - Built a word-based tokenizer from scratch in Python, including handling punctuation and special characters as separate tokens.
@@ -56,3 +60,34 @@ Discussed how these preprocessing steps are foundational for effective LLM train
 ---
 
 ## WEEK-3 
+1. Now it’s the time to build the heart and soul of the transformer architecture- namely **ATTENTION MECHANISM**.
+2. Traditional models used sequence models like RNNs and LSTMs to process data sequentially but they used to struggle with long range dependencies. This changed all of a sudden when researchers at google, on 12th June 2017 released a research paper, *Attention is all you need*. It introduced us to the transformer architecture, and it revolutionised the field of natural language processing for ever. 
+3. This week we shall dive more into this new architecture, starting with **self attention**. It enables the model to weigh and aggregate information across different positions of a single input sequence. It helps in building a richer context in long sequences. Next we shall go through causal and multi head attention to capture even more deep meaning in sentences and paragraphs. 
+4. Introduction to Attention Mechanism in LLMs:
+   - Learned why the attention mechanism is crucial for modern language models.
+   - The evolution from RNNs and LSTMs to attention-based models.
+   - Discussed four types of attention mechanisms and their roles.
+   - The limitations of RNNs in modeling long sequences and how attention overcomes these issues.
+   - Introduction to Bahdanau Attention and the concept of self-attention, which is foundational for transformers.
+5. Simplified Attention Mechanism (No Trainable Weights, Python Implementation)
+   - Coding a basic attention mechanism from scratch, focusing on theory and practical intuition.
+   - Introduces key concepts: context vectors, attention scores (via dot product), and attention weights.
+   - Understood how to normalize attention scores (simple division and softmax) for interpretability and stability.
+   - The calculation of context vectors as weighted sums of input embeddings.
+   - Emphasized on the importance of normalization (especially softmax) for effective learning and interpretability.
+6. Self-Attention with Trainable Weights:
+   - Expands the simplified mechanism by introducing trainable weight matrices (queries, keys, values).
+   - Shows how these matrices allow the model to learn which parts of the input to focus on for each token.
+   - Explains the computation of attention scores using learned projections and the role of backpropagation in optimizing these weights.
+7. Causal (Masked) Attention :
+   - The need for causal (or masked) attention in autoregressive models (like GPT), ensuring that each token only attends to previous tokens, not future ones.
+   - Shows how masking is implemented in the attention score matrix to prevent information "leakage" from future tokens during training and inference.
+8. Multi-Head Attention:
+   - Introduces the concept of multi-head attention, where multiple attention mechanisms (heads) run in parallel on different projections of the input.
+   - Explains how this allows the model to capture diverse relationships and dependencies in the data.
+   - Details the concatenation and linear transformation steps that combine the outputs of all heads.
+   - Presents the benefits of multi-head attention in improving model expressiveness and performance.
+
+
+## WEEK-4 
+1. 
