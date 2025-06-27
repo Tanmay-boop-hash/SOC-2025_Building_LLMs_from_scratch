@@ -1,6 +1,7 @@
 # Season of Code : "Building LLMs from Scratch" 
 This is a summary of what I learned so far in the four weeks of this project.
-First of all while studying all the history of transformers and LLMs in detail, i came across a number of research papers that led to the development of powerful LLMs in such a small period of time. Ihave uploaded all of them in this repository for my future references, and to take a look at them everytime i want to study a concept in detail. Therefore, these can be skipped for evealuation purposes.
+
+First of all while studying all the history of transformers and LLMs in detail, I came across a number of research papers that led to the development of powerful LLMs in such a small period of time. I have uploaded all of them in this repository for my future references, and to take a look at them everytime i want to study a concept in detail. Therefore, these can be skipped for evaluation purposes.
 ---
 
 ## WEEK-1 
@@ -29,9 +30,29 @@ First of all while studying all the history of transformers and LLMs in detail, 
     - Pretraining of GPT-3 model is *unsupervised* and *auto-regressive*.
     - GPT architecture has no encoder, we just have a decoder.
     - GPT shows **Emergent Behaviour** which is the ability of a model to perform tasks that the model wasn't explicitly trained to perform.
-
-  Understood the basic flow of stages of building an LLM from scratch.
+ Understood the basic flow of stages of building an LLM from scratch.
   ---
 
-  ## WEEK-2
-  
+  ## WEEK-2 Building the entire Data Preprocessing Pipeline of Large Language Models (LLMs) 
+1. Four Key Stages Covered:
+   - **Tokenization**:
+     - Different approaches: word-based, subword-based (including Byte Pair Encoding (BPE)), and character-based tokenizers.
+     - Built a word-based tokenizer from scratch in Python, including handling punctuation and special characters as separate tokens.
+     - Discussed the limitations of word-based tokenization, such as handling out-of-vocabulary words and large vocabulary size.
+     - Got introduced to special context tokens like <unk> (unknown) and <eot> (end of text) to handle unknown words and document boundaries.
+     - GPT models use subword-based tokenization, specifically BPE, which balances vocabulary size and the retention of root word meanings.
+     - BPE works by iteratively merging frequent character pairs and allows handling of unknown words without explicit unknown tokens.
+     - The use of the OpenAI tiktoken library for BPE tokenization, as used in GPT-2 and later models.
+
+   - **Token Embeddings**:
+     - Converts token IDs into high-dimensional vectors, enabling the model to process tokens numerically.
+
+   - **Positional Embeddings**:
+     - Adds information about the position of each token in a sequence, which is crucial since LLMs process sequences in parallel and need to understand order.
+
+   - **Input Embeddings**:
+     - The final input to the model is the sum of token embeddings and positional embeddings, forming the input embedding vector for each token.
+Discussed how these preprocessing steps are foundational for effective LLM training and performance.
+---
+
+## WEEK-3 
