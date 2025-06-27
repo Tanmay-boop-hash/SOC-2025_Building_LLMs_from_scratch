@@ -63,31 +63,53 @@ Discussed how these preprocessing steps are foundational for effective LLM train
 1. Now it’s the time to build the heart and soul of the transformer architecture- namely **ATTENTION MECHANISM**.
 2. Traditional models used sequence models like RNNs and LSTMs to process data sequentially but they used to struggle with long range dependencies. This changed all of a sudden when researchers at google, on 12th June 2017 released a research paper, *Attention is all you need*. It introduced us to the transformer architecture, and it revolutionised the field of natural language processing for ever. 
 3. This week we shall dive more into this new architecture, starting with **self attention**. It enables the model to weigh and aggregate information across different positions of a single input sequence. It helps in building a richer context in long sequences. Next we shall go through causal and multi head attention to capture even more deep meaning in sentences and paragraphs. 
-4. Introduction to Attention Mechanism in LLMs:
+4. **Introduction to Attention Mechanism in LLMs**:
    - Learned why the attention mechanism is crucial for modern language models.
    - The evolution from RNNs and LSTMs to attention-based models.
    - Discussed four types of attention mechanisms and their roles.
    - The limitations of RNNs in modeling long sequences and how attention overcomes these issues.
    - Introduction to Bahdanau Attention and the concept of self-attention, which is foundational for transformers.
-5. Simplified Attention Mechanism (No Trainable Weights, Python Implementation)
+5. **Simplified Attention Mechanism (No Trainable Weights)**
    - Coding a basic attention mechanism from scratch, focusing on theory and practical intuition.
-   - Introduces key concepts: context vectors, attention scores (via dot product), and attention weights.
+   - Key concepts: context vectors, attention scores (via dot product), and attention weights.
    - Understood how to normalize attention scores (simple division and softmax) for interpretability and stability.
    - The calculation of context vectors as weighted sums of input embeddings.
    - Emphasized on the importance of normalization (especially softmax) for effective learning and interpretability.
-6. Self-Attention with Trainable Weights:
+6. **Self-Attention with Trainable Weights**:
    - Expands the simplified mechanism by introducing trainable weight matrices (queries, keys, values).
-   - Shows how these matrices allow the model to learn which parts of the input to focus on for each token.
-   - Explains the computation of attention scores using learned projections and the role of backpropagation in optimizing these weights.
-7. Causal (Masked) Attention :
+   - Learned how these matrices allow the model to learn which parts of the input to focus on for each token.
+   - The computation of attention scores using learned projections and the role of backpropagation in optimizing these weights.
+7. **Causal (Masked) Attention**:
    - The need for causal (or masked) attention in autoregressive models (like GPT), ensuring that each token only attends to previous tokens, not future ones.
-   - Shows how masking is implemented in the attention score matrix to prevent information "leakage" from future tokens during training and inference.
-8. Multi-Head Attention:
-   - Introduces the concept of multi-head attention, where multiple attention mechanisms (heads) run in parallel on different projections of the input.
-   - Explains how this allows the model to capture diverse relationships and dependencies in the data.
-   - Details the concatenation and linear transformation steps that combine the outputs of all heads.
-   - Presents the benefits of multi-head attention in improving model expressiveness and performance.
-
+   - Learned how masking is implemented in the attention score matrix to prevent information "leakage" from future tokens during training and inference.
+8. **Multi-Head Attention**:
+   - Introduction to the concept of multi-head attention, where multiple attention mechanisms (heads) run in parallel on different projections of the input.
+   - Learned how this allows the model to capture diverse relationships and dependencies in the data.
+   - Detailed understanding of the concatenation and linear transformation steps that combine the outputs of all heads.
+   - Learned about the benefits of multi-head attention in improving model expressiveness and performance.
+---
 
 ## WEEK-4 
-1. 
+1. After last week’s exploration of attention mechanisms, we now have a strong understanding of how models like Transformers capture contextual meaning in sequences. This week, we build on that foundation to construct the full architecture behind modern language models.
+2. We begin with a high-level overview of the Transformer architecture, understanding how various components interact to process and generate text. We then implement a complete Transformer block—including self-attention, feedforward networks, normalization, and residual connections—from scratch using PyTorch.
+3. **Birds Eye View of the LLM Architecture**:
+   - Had an overview of the architecture of Large Language Models (LLMs), focusing on how components like token embeddings, transformer blocks, feedforward neural networks, and the output layer interact for next-word prediction.
+   - Understood the GPT-2 architecture, detailing how input text is tokenized, embedded, passed through transformer blocks, and finally processed to produce output logits.
+4. **Layer Normalization in the LLM Architecture**:
+   - Learned about the purpose and mechanics of layer normalization, a critical component for stable and efficient training in deep neural networks.
+   - Discussed how layer normalization prevents vanishing/exploding gradients and internal covariate shift, leading to faster convergence.
+   - Got to know from the flowchart where layer normalization fits in the transformer block and the overall GPT architecture, emphasizing its independence from batch size.
+5. **GELU Activation Function in Transformers**:
+   - Introduced the *Gaussian Error Linear Unit (GELU)* activation function, commonly used in transformer models.
+   - Learned the mathematical intuition behind GELU, its advantages over ReLU, and why it is preferred in LLMs.
+   - Demonstrated implementation and integration of GELU in the feedforward layers of the transformer block.
+6. **Feedforward Neural Networks in Transformer Blocks**:
+   - Had an overview of the structure of the feedforward neural network (FFN) within each transformer block.
+   - Learned how FFNs process the output of attention layers, typically using two linear layers with a non-linear activation (like GELU) in between.
+7. **Shortcut (Residual) Connections**:
+   - Understood the concept of shortcut or residual connections, which add the input of a layer to its output.
+   - Learned how these connections help mitigate the vanishing gradient problem, enabling the training of very deep networks.
+   - Finally saw in code how to implement residual connections in the transformer block.
+8. **Putting It All Together: The Transformer Block**:
+   - Combined all previously discussed components—multi-head attention, layer normalization, feedforward networks, GELU activation, and residual connections—into a complete transformer block.
+---
