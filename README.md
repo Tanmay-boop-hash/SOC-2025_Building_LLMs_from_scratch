@@ -113,3 +113,35 @@ Discussed how these preprocessing steps are foundational for effective LLM train
 8. **Putting It All Together: The Transformer Block**:
    - Combined all previously discussed components—multi-head attention, layer normalization, feedforward networks, GELU activation, and residual connections—into a complete transformer block.
 ---
+
+
+## WEEK-5 Topics focused on: 
+1. Measuring the LLM Loss Function :
+   - We focused on understanding the role of loss functions in LLM training, specifically the use of cross entropy loss to measure model fit.
+   - Learned about the input-target construction for next-token prediction: each input sequence leads to several prediction tasks (not just the last token to make the LLM look more human).
+   - Learned about how LLM outputs logits (pre-softmax values per token), which are compared with target tokens to compute loss.
+   - Set a foundation for integrating gradient-based training (backpropagation) by defining the loss quantitatively.
+
+2. Evaluating LLM Performance on a Real Dataset :
+   - Performed a hands-on project using a real storybook dataset ("the verdict") to evaluate LLM loss.
+   - The project demonstrates tokenizing the dataset using Byte Pair Encoding (BPE), and how to split data into training and validation sets.
+   - Also shows how to create input-target pairs using context windows and stride, vital for proper AutoRegressive language modeling.
+   - Implemented PyTorch DataLoader for batching and efficient data feeding.
+   - Measured training and validation loss without full-blown training—setting up the workflow to benchmark improvement as later training proceeds.
+
+3. Coding the Entire LLM Pre-training Loop :
+   - Revised how input-target pairs are generated and how cross entropy loss is defined.
+   - Implemented the full pre-training loop: batching data, passing input through the model, calculating logits, computing loss, and performing backpropagation using PyTorch.
+   - Discussed batching, epochs, and parameter optimization (with hundreds of millions of parameters).
+     
+4. Temperature Scaling in LLMs :
+   - Got introduced to temperature scaling as a decoding strategy during text generation, controlling the randomness and creativity of model outputs.
+   - Showed that dividing logits by a "temperature" parameter before softmax can sharpen (low T) or flatten (high T) the probability distribution over next tokens.
+   - Learned the difference between deterministic (argmax/greedy) and probabilistic (sampling) decoding.
+
+5. Top-k Sampling in LLMs :
+   - top-k sampling (often combined with temperature scaling) is used to further control output randomness by limiting candidate tokens at each step to the top k likely ones.
+   - Discussed how this manages the tradeoff between creativity and coherence and reduces the chance of generating nonsensical or memorized output.
+---
+
+## WEEK 6 
