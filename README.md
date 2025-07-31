@@ -146,38 +146,35 @@ Discussed how these preprocessing steps are foundational for effective LLM train
 
 ## WEEK 6 
 1. Loading Pre-trained Weights from OpenAI GPT-2 :
-   - Demonstrates how to load OpenAI GPT-2 pre-trained weights into a custom-built GPT architecture, improving output coherence.
-   - Explains the structure and content of GPT-2 checkpoint files (including weights, vocab, BPE merges, model config).
-   - Shows conversion and integration of TensorFlow-saved GPT-2 weights into a PyTorch-based LLM pipeline.
-   - Walks through Python code to download, process, and load weights, matching custom model layers to pre-trained weights.
-   - Tests the model with loaded GPT-2 weights, comparing text generation before and after integration; highlights significantly improved text fluency and coherence.
+   - Loaded OpenAI GPT-2 pre-trained weights into a custom-built GPT architecture, improving output coherence.
+   - Explaination of the structure and content of GPT-2 checkpoint files (including weights, vocab, BPE merges, model config).
+   - Learned the conversion and integration of TensorFlow-saved GPT-2 weights into a PyTorch-based LLM pipeline.
+   - Tested the model with loaded GPT-2 weights, comparing text generation before and after integration; significantly improved text fluency and coherence.
 
-2. Introduction to LLM Fine-tuning | Python Coding with Hands-on Example :
-   - Introduces LLM fine-tuning and explains why it’s needed after pre-training for application-specific tasks.
-   - Describes two main types of fine-tuning:
+2. Introduction to LLM Fine-tuning : 
+   - Introduction to LLM fine-tuning and why it’s needed after pre-training for application-specific tasks.
+   - Two main types of fine-tuning:
         - Instruction-based fine-tuning (model follows prompt instructions, suitable for diverse tasks).
         - Classification-based fine-tuning (model classifies input into fixed categories, e.g., spam/ham).
-   - Shows hands-on start to classification finetuning by downloading and preprocessing a spam vs. non-spam email dataset.
-   - Explains dataset balancing, splitting into train/validation/test, and saving as CSVs for further work.
-   - Outlines full fine-tuning workflow to follow (data prep, model init, training, evaluation, usage on new data).
+   - Learned hands-on start to classification finetuning by downloading and preprocessing a spam vs. non-spam email dataset.
+   - Full fine-tuning workflow to follow (data prep, model init, training, evaluation, usage on new data).
 
 3. Dataloaders in LLM Classification Finetuning :
-   - Recaps the email spam classification project and the need for efficient data feeding.
-   - Explains the importance of consistent input length for batching—demonstrates padding/truncating emails to the max sequence length using GPT-2’s end-of-text token.
-   - Implements a PyTorch Dataset class to tokenize emails and pad them as needed.
-   - Code walkthrough for PyTorch DataLoader objects to create batches for training, validation, and testing.
-   - Ensures streamlined and memory-efficient data access in subsequent model training cycles.
+   - The importance of consistent input length for batching—demonstrates padding/truncating emails to the max sequence length using GPT-2’s end-of-text token.
+   - Implemented a PyTorch Dataset class to tokenize emails and pad them as needed.
+   - Implemented PyTorch DataLoader objects to create batches for training, validation, and testing.
 
 4. Coding the Model Architecture for LLM Classification Fine-tuning :
-   - Modifies the original GPT model to support classification (spam detection) by adding a classification head (output layer with two neurons for spam/not spam).
-   - Loads OpenAI GPT-2 pre-trained weights into the modified architecture.
-   - Provides code and explanation for updating only specific (selected) layers during fine-tuning.
-   - Shows how to extract the final (last token’s) output for classification, as it encodes information from the entire input due to the transformer’s attention mechanism.
-   - Prepares model for training and evaluation as a binary classifier.
+   - Modified the original GPT model to support classification (spam detection) by adding a classification head (output layer with two neurons for spam/not spam).
+   - Loaded OpenAI GPT-2 pre-trained weights into the modified architecture.
+   - Understood the explanation for updating only specific (selected) layers during fine-tuning.
+   - The code shows how to extract the final (last token’s) output for classification, as it encodes information from the entire input due to the transformer’s attention mechanism.
 
 5. Coding a Fine-tuned LLM Spam Classification Model : 
-   - Implements full training (fine-tuning) loop for the spam classifier on the labeled dataset, using cross-entropy loss and the AdamW optimizer.
-   - Explains how to convert logits to label predictions (using argmax over the output layer).
-   - Calculates accuracy and loss throughout training and validation phases; tracks and plots performance.
-   - Analyzes results: decreasing loss curves, increasing accuracy, and checks for overfitting by comparing validation and training results.
-   - Finalizes a practical, working LLM-based spam classifier tested on new data, concluding the full from-scratch fine-tuning pipeline.
+   - Implemented full training (fine-tuning) loop for the spam classifier on the labeled dataset, using cross-entropy loss and the AdamW optimizer.
+   - Learned how to convert logits to label predictions (using argmax over the output layer).
+   - Calculated accuracy and loss throughout training and validation phases.
+   - Analyzed results: decreasing loss curves, increasing accuracy, and checks for overfitting by comparing validation and training results.
+   - Finalized a practical, working LLM-based spam classifier tested on new data, concluding the full from-scratch fine-tuning pipeline.
+---
+
