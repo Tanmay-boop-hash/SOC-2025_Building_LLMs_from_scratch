@@ -178,3 +178,44 @@ Discussed how these preprocessing steps are foundational for effective LLM train
    - Finalized a practical, working LLM-based spam classifier tested on new data, concluding the full from-scratch fine-tuning pipeline.
 ---
 
+## WEEK 7
+1. Introduction to Instruction Fine-Tuning:
+   - Instruction fine-tuning: adapting a pre-trained LLM to follow specific instructions rather than generic text completion.
+   - Practical application: E-commerce chatbots, personalized healthcare assistants, and domain-specific question answering require fine-tuning on relevant instructions.
+   - Dataset preparation: Uses a set of 1,100 instruction-response pairs, each with an instruction, optional input, and expected output.
+   - Data is split into train (85%), test (10%), and validation (5%) sets.
+
+2. Data Batching and Formatting:
+   - Illustrates how instruction, input, and output fields are merged into a single prompt following the "Alpaca prompt style".
+   - Steps in batching:
+        - Formatting each prompt using the Alpaca template.
+        - Tokenizing the formatted prompts (using OpenAI’s tiktoken/BPE).
+        - Sequences of varying length are padded to a uniform length for batch training.
+        - Target IDs (for output/labels) are created with masked tokens (ignore_index = -100) to avoid loss computation on padding.
+        - Explains how batching enables efficient model training.
+
+3. Data Loaders for Efficient Training:
+   - Shows the use of PyTorch DataLoader classes to handle batches of tokenized, padded data.
+   - DataLoader provides iterators for training, validation, and testing datasets.
+
+4. Loading Pre-Trained Model Weights:
+   - Explained the importance of initializing the LLM with pre-trained weights (GPT-2 355M parameter "medium" model) before fine-tuning.
+   - Details downloading and integrating GPT-2 weights for all model layers.
+   - Discussed the advantage: faster and more effective fine-tuning as the model starts from a knowledgeable state instead of random parameters.
+
+5. Fine-Tuning Training Loop:
+   - Implements the standard PyTorch training loop: batch input, compute predictions, cross-entropy loss, backward pass, and optimizer update.
+   - Target: Model learns to predict the next token for each instruction (next-token prediction task).
+   - Loss function: Cross-entropy, with masking for padded locations.
+   - Training and validation loss are tracked; results show significant loss reduction and improved response accuracy after fine-tuning.
+   - Shows qualitative improvements in model responses, such as converting sentences from active to passive voice and generating similes.
+
+6. Evaluating the Fine-Tuned LLM:
+   - Moved to systematic evaluation after training.
+   - Three evaluation strategies:
+     - MMLU: Standardized benchmarks.
+     - Manual/human preference: Comparing outputs by hand.
+     - LLM-as-judge: Using another LLM (e.g., Llama 3 via Ollama) for automated qualitative scoring.
+   - Demonstrates extracting model responses from the test set and comparing them to ground-truth outputs.
+   - Showed strengths and limitations: the fine-tuned LLM makes qualitative improvements but may still err on fact-based tasks if under-trained.
+---
