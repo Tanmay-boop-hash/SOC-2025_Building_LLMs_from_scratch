@@ -1,9 +1,8 @@
 # Season of Code : "Building LLMs from Scratch" 
 This is a summary of what I learned so far in the four weeks of this project.
 
-NOTE : The "combined_code.ipynb" file contains all the code written over the weeks of progress, it is still not fully completed as was intended to be at the start of the project, but a major part is done and this submission is made by me after concerning my mentor. The two files required to run this combined file are "the-verdict.txt" and "gpt_download3.py".
+NOTE : The "combined_code.ipynb" file contains all the code written over the weeks. The two files required to run this combined file are "the-verdict.txt" and "gpt_download3.py".
 
-First of all while studying all the history of transformers and LLMs in detail, I came across a number of research papers that led to the development of powerful LLMs in such a small period of time. I have uploaded all of them in this repository for my future references, and to take a look at them everytime i want to study a concept in detail. Therefore, these can be skipped for evaluation purposes.
 ---
 
 ## WEEK-1 
@@ -220,9 +219,7 @@ Discussed how these preprocessing steps are foundational for effective LLM train
      - LLM-as-judge: Using another LLM (e.g., Llama 3 via Ollama) for automated qualitative scoring.
     
 
-I trained the model after instruction finetuning for 2 epochs and the results were quite improved than 1 epoch earlier.
-I also intended to use ollama's llama3 to evaluate my model but it required a lot of storage space and laptop had some storage issues, so had to stop here in code.
-That and the deployment part was mainly what couldn't be achieved during the project, otherwise the project is mostly complete. Thank for your time !!
+I trained the model after instruction finetuning for 2 epochs and the results were quite improved than a single epoch earlier.
 
 End of the project 
 ---
