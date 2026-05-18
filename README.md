@@ -1,9 +1,13 @@
 # Season of Code : "Building LLMs from Scratch" 
 This is a summary of what I learned so far in the four weeks of this project.
 
+This project is a 7-week guided implementation of a GPT-style Large Language Model (LLM) built entirely from scratch in Python and PyTorch.
+Week 1 lays the conceptual groundwork — transformer architecture, self-supervised learning, and how GPT models work. Week 2 builds the data preprocessing pipeline, covering tokenization (Byte Pair Encoding via tiktoken), token embeddings, and positional embeddings. Week 3 implements the core attention mechanism, progressing from simplified attention to self-attention with trainable weights, causal masking, and multi-head attention. Week 4 assembles the full transformer block by combining attention, feedforward networks, layer normalization (with GELU activation), and residual connections. Week 5 covers the training pipeline — computing cross-entropy loss, building dataloaders on a real dataset, writing the pretraining loop, and exploring decoding strategies like temperature scaling and top-k sampling. Week 6 loads OpenAI's pretrained GPT-2 weights into the custom architecture and introduces fine-tuning, culminating in a working spam classifier. Week 7 completes the project with instruction fine-tuning using the Alpaca prompt format, training on 1,100 instruction-response pairs, and evaluating the model using LLM-as-judge methodology.
+
 NOTE : The "combined_code.ipynb" file contains all the code written over the weeks. The two files required to run this combined file are "the-verdict.txt" and "gpt_download3.py".
 
 ---
+## Detailed Summary : 
 
 ## WEEK-1 
 1. This week, we shall primarily focus on getting our basics clear on LLMs, python and pytorch.
